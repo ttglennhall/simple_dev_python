@@ -1,7 +1,8 @@
-def F(n):
-	if n < 2:
-		return n
-	else:
-		return F(n-2) + F(n-1)
+memo = {0:0, 1:1}
 
-print(F(7))
+def F(n):
+	if not n in memo:
+		memo[n] = F(n-1) + F(n-2)
+	return memo[n]
+
+print(F(100))
